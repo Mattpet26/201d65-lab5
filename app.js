@@ -14,7 +14,6 @@ function sum(a, b) { //eslint-disable-line
   var theString = 'The sum of ' + a +' and ' + b +' is ' + theSum +'.';
   return [theSum, theString];
 }
-sum();
 
 // Here is the test for sum(); uncomment it to run it
 testSum(4, 7);
@@ -36,7 +35,6 @@ function multiply(a, b) { //eslint-disable-line
 
   return[mathTime, stringTime];
 }
-multiply();
 
 // Here is the test for multiply(); uncomment it to run it
 testMultiply(5,9);
@@ -59,10 +57,10 @@ function sumAndMultiply(a, b, c) { //eslint-disable-line
 
   var sumOfThree = sum(sum(a, b)[0],c)[0];
   var productOfThree = multiply(multiply(a, b)[0], c)[0];
-  var stringSum = a + ' and ' + b + ' and ' + c + ' sum to ' + sumOfThree + '.'
-  var stringProduct = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + productOfThree + '.'
-  return[sumOfThree, productOfThree, stringSum, stringProduct]
-
+  var stringSum = a + ' and ' + b + ' and ' + c + ' sum to ' + sumOfThree + '.';
+  var stringProduct = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + productOfThree + '.';
+  return[sumOfThree, productOfThree, stringSum, stringProduct];
+}
 // Here is the test for sumAndMultiply(); uncomment it to run it
 testSumAndMultiply(4,7,5);
 
@@ -82,13 +80,19 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
+  //var sumOfThree = sum(sum(2, 3)[0],4)[0];
+  var firstSum = sum(sumArr[0], sumArr[1]);
+  var secondSum = sum(firstSum[0], sumArr[2]);
+  var sumOfThree = secondSum[0]
+  var stringofthree = testArray + ' was passed in as an array of numbers, and ' + sumOfThree + ' is their sum.'
+  console.log(stringofthree)
+  console.log(sumOfThree)
+  return[sumOfThree, stringofthree]
 
 }
-sumArray();
 
 // Here is the test for sumArray(); uncomment it to run it
-
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
